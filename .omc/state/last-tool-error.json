@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"npx vercel --yes 2>&1\",\"timeout\":120000,\"description\":\"Deploy to Vercel with auto-confirm\"}",
+  "error": "Exit code 1\n<claude-code-hint v=\"1\" type=\"plugin\" value=\"vercel@claude-plugins-official\" />\nVercel CLI 54.21.0 (Node.js 20.18.3)\n> NOTE: The Vercel CLI now collects telemetry regarding usage of the CLI.\n> This information is used to shape the CLI roadmap and prioritize features.\n> You can learn more, including how to opt-out if you'd not like to participate in this program, by visiting the following URL:\n> https://vercel.com/docs/cli/about-telemetry\n\n  Directory       ~/Documents/projects/festiv...",
+  "timestamp": "2026-07-07T08:05:43.051Z",
+  "retry_count": 1
+}

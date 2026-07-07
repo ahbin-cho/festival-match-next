@@ -1,7 +1,7 @@
 import { Question } from "./types";
 
 /** 매 판 이 풀에서 QUIZ_LEN 개를 랜덤으로 뽑아 출제 */
-export const QUIZ_LEN = 12;
+export const QUIZ_LEN = 13;
 
 export const QUESTIONS: Question[] = [
   {
@@ -204,6 +204,86 @@ export const QUESTIONS: Question[] = [
       { label: "핵심 무대만 찍고 나머진 즉흥", effects: { free: 3, indie: 1 } },
       { label: "셋리스트 예습으로 감정선 준비", effects: { emotion: 3 } },
       { label: "체력 관리보다 현장 텐션 믿기", effects: { energetic: 3, edm: 1 } },
+    ],
+  },
+  {
+    id: "arrival",
+    q: "입장 시간은 어떤 편이 좋아?",
+    options: [
+      { label: "오픈런해서 앞자리부터 잡기", effects: { energetic: 2, kpop: 2 } },
+      { label: "여유롭게 들어가서 분위기 보기", effects: { heal: 2, jazz: 1 } },
+      { label: "보고 싶은 무대 시간에 맞춰 입장", effects: { emotion: 2, indie: 1 } },
+      { label: "일단 가서 현장 흐름대로 움직이기", effects: { free: 3, hiphop: 1 } },
+    ],
+  },
+  {
+    id: "phone",
+    q: "휴대폰은 공연 중에 어떻게 써?",
+    options: [
+      { label: "직캠과 사진을 제대로 남긴다", effects: { kpop: 2, emotion: 1 } },
+      { label: "필요한 순간만 찍고 바로 즐긴다", effects: { energetic: 2, hiphop: 1 } },
+      { label: "지도와 타임테이블 확인용", effects: { free: 2, indie: 1 } },
+      { label: "가방에 넣고 소리에 집중한다", effects: { jazz: 2, heal: 2 } },
+    ],
+  },
+  {
+    id: "waiting",
+    q: "기다리는 시간이 길어지면?",
+    options: [
+      { label: "주변 사람들과 금방 친해진다", effects: { free: 2, hiphop: 1 } },
+      { label: "응원법이나 떼창을 예습한다", effects: { kpop: 2, emotion: 1 } },
+      { label: "간식 먹고 체력을 아껴둔다", effects: { heal: 3, jazz: 1 } },
+      { label: "기다림도 텐션으로 버틴다", effects: { energetic: 3, edm: 1 } },
+    ],
+  },
+  {
+    id: "stage-switch",
+    q: "두 무대가 겹치면 나는?",
+    options: [
+      { label: "후회 없는 헤드라이너 한 방", effects: { energetic: 2, edm: 1, kpop: 1 } },
+      { label: "절반씩 쪼개서 둘 다 본다", effects: { free: 3 } },
+      { label: "더 편하게 들을 수 있는 쪽", effects: { heal: 2, jazz: 1 } },
+      { label: "요즘 마음에 박힌 곡이 있는 쪽", effects: { emotion: 3, indie: 1 } },
+    ],
+  },
+  {
+    id: "crew-role",
+    q: "친구들과 가면 내 역할은?",
+    options: [
+      { label: "분위기 올리는 텐션 담당", effects: { energetic: 3, kpop: 1 } },
+      { label: "동선 바꾸는 즉흥 담당", effects: { free: 3, indie: 1 } },
+      { label: "돗자리와 물 챙기는 케어 담당", effects: { heal: 3, jazz: 1 } },
+      { label: "좋은 무대 추천하는 감상 담당", effects: { emotion: 2, hiphop: 1 } },
+    ],
+  },
+  {
+    id: "rest",
+    q: "쉬는 시간에 제일 하고 싶은 건?",
+    options: [
+      { label: "다음 무대 앞쪽 자리 잡기", effects: { energetic: 2, kpop: 1 } },
+      { label: "굿즈 부스나 작은 무대 구경", effects: { free: 2, indie: 1 } },
+      { label: "그늘에서 물 마시며 충전", effects: { heal: 3 } },
+      { label: "방금 본 무대 플레이리스트 저장", effects: { emotion: 2, hiphop: 1 } },
+    ],
+  },
+  {
+    id: "lighting",
+    q: "무대 연출 중 제일 끌리는 건?",
+    options: [
+      { label: "레이저와 스트로브가 쏟아지는 밤", effects: { edm: 3, energetic: 2 } },
+      { label: "아티스트와 관객이 가까운 작은 무대", effects: { indie: 2, free: 2 } },
+      { label: "해 질 무렵 따뜻한 자연광", effects: { jazz: 2, heal: 2 } },
+      { label: "엔딩 조명 아래 마지막 멘트", effects: { kpop: 1, emotion: 3 } },
+    ],
+  },
+  {
+    id: "memory",
+    q: "집에 돌아와 가장 오래 남는 건?",
+    options: [
+      { label: "아직도 몸에 남은 베이스", effects: { edm: 2, energetic: 2 } },
+      { label: "우연히 발견한 새 아티스트", effects: { indie: 2, free: 2 } },
+      { label: "편안했던 공기와 풍경", effects: { jazz: 2, heal: 2 } },
+      { label: "같이 부른 한 줄의 가사", effects: { kpop: 1, emotion: 3 } },
     ],
   },
   {

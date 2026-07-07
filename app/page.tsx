@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Option, Question, emptyScores } from "@/lib/data/types";
+import { Option, Question, Vibe, emptyScores } from "@/lib/data/types";
 import { QUIZ_LEN } from "@/lib/data/questions";
 import {
   applyEffects,
@@ -13,6 +13,48 @@ import {
 type Stage = "cover" | "quiz" | "result";
 
 const MASCOT = "/images/melo-mascot.png";
+const PERSONA_MASCOTS: Record<
+  Vibe,
+  { src: string; label: string; caption: string; color: string }
+> = {
+  energetic: {
+    src: "/images/melo-energetic.png",
+    label: "점프하는 Melo",
+    caption: "피크 타임을 향해 바로 뛰어드는 타입",
+    color: "#d96f63",
+  },
+  free: {
+    src: "/images/melo-free.png",
+    label: "탐험하는 Melo",
+    caption: "타임테이블보다 끌리는 무대를 따라가는 타입",
+    color: "#2f8f9b",
+  },
+  heal: {
+    src: "/images/melo-heal.png",
+    label: "쉬어가는 Melo",
+    caption: "좋은 자리와 편한 공기를 오래 즐기는 타입",
+    color: "#8a8450",
+  },
+  emotion: {
+    src: "/images/melo-emotion.png",
+    label: "몰입하는 Melo",
+    caption: "한 곡의 여운을 오래 간직하는 타입",
+    color: "#b8758b",
+  },
+};
+
+function personaVibe(key: string): Vibe {
+  const vibe = key.split("_").pop();
+  if (
+    vibe === "energetic" ||
+    vibe === "free" ||
+    vibe === "heal" ||
+    vibe === "emotion"
+  ) {
+    return vibe;
+  }
+  return "emotion";
+}
 
 export default function Page() {
   const [stage, setStage] = useState<Stage>("cover");
@@ -95,21 +137,6 @@ function Cover({ onStart }: { onStart: () => void }) {
         테스트 시작하기
       </button>
 
-      <div className="quick-stats" aria-label="테스트 특징">
-        <div>
-          <strong>20</strong>
-          <span>페르소나</span>
-        </div>
-        <div>
-          <strong>랜덤</strong>
-          <span>질문 조합</span>
-        </div>
-        <div>
-          <strong>6</strong>
-          <span>추천 후보</span>
-        </div>
-      </div>
-
       <div className="cover-tags">
         <span>EDM</span>
         <span>힙합·R&B</span>
@@ -171,8 +198,9 @@ function ResultView({
   onRestart: () => void;
 }) {
   const top = result.ranked[0];
-  const alts = result.ranked.slice(1, 4);
+  const alts = result.ranked.slice(1, 6);
   const persona = result.persona;
+  const mascot = PERSONA_MASCOTS[personaVibe(persona.key)];
   const shareText = useMemo(
     () =>
       `내 페스티벌 페르소나는 '${persona.title}' — 궁합 1순위 ${top.festival.name} (${top.pct}%)`,
@@ -187,12 +215,16 @@ function ResultView({
 
   return (
     <section className="result">
-      <div className="result-hero">
-        <img src={MASCOT} alt="" />
+      <div className="result-hero" style={{ borderColor: mascot.color }}>
+        <img src={mascot.src} alt="" />
         <div>
           <span className="eyebrow">Melo의 매칭 결과</span>
           <h1>{persona.title}</h1>
           <p>“{persona.tagline}”</p>
+          <div className="mascot-note">
+            <span>{mascot.label}</span>
+            {mascot.caption}
+          </div>
         </div>
       </div>
 
