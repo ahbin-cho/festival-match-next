@@ -19,6 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
+      <head>
+        <link rel="preload" href="/images/melo-mascot.png" as="image" />
+        <link rel="preload" href="/images/melo-emotion.png" as="image" />
+        <link rel="preload" href="/images/melo-energetic.png" as="image" />
+        <link rel="preload" href="/images/melo-free.png" as="image" />
+        <link rel="preload" href="/images/melo-heal.png" as="image" />
+      </head>
       <body>{children}</body>
     </html>
   );
