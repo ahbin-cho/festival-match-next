@@ -53,11 +53,22 @@ a {
   flex-direction: column;
 }
 
+/* iframe 임베드: 강제 뷰포트 높이를 해제해 콘텐츠 높이대로만 잡히게 한다.
+   부모 스크롤과 iframe 내부 스크롤이 겹치는 이중 스크롤을 방지한다. */
+html[data-embed],
+html[data-embed] body {
+  min-height: 0;
+}
+
+html[data-embed] .app {
+  min-height: 0;
+}
+
 .shell {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .foot {

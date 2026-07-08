@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import EmbedResize from "./EmbedResize";
 
 export const metadata: Metadata = {
   title: "페스티벌 궁합 테스트",
@@ -36,7 +37,10 @@ export default function RootLayout({
         <link rel="preload" href="/images/melo-free.png" as="image" />
         <link rel="preload" href="/images/melo-heal.png" as="image" />
       </head>
-      <body>{children}</body>
+      <body>
+        <EmbedResize />
+        {children}
+      </body>
     </html>
   );
 }
